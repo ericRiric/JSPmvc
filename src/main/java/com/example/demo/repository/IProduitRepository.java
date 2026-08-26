@@ -5,7 +5,6 @@ import com.example.demo.models.Produit;
 import java.util.ArrayList;
 
 public interface IProduitRepository {
-    ArrayList<Produit> produitArrayList = new ArrayList<>();
     ArrayList<Produit> getProduitArrayList();
     Produit getProduitItem(Integer id);
     void ajouterProduit(Produit produit);

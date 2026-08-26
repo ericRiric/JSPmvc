@@ -1,10 +1,14 @@
 package com.example.demo.repository;
 
 import com.example.demo.models.Produit;
+import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 
+@Repository
 public class ProduitRepository implements IProduitRepository {
+    private ArrayList<Produit> produitArrayList = new ArrayList<>();
+
     public ProduitRepository() {
         this.ajouterProduit(new Produit(
                 0,
