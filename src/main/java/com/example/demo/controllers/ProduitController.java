@@ -1,8 +1,6 @@
 package com.example.demo.controllers;
 
-import com.example.demo.models.Produit;
-import com.example.demo.repository.IProduitRepository;
-import com.example.demo.repository.ProduitRepository;
+import com.example.demo.services.ProduitService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -10,10 +8,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("/produit")
 public class ProduitController {
-    private IProduitRepository produitRepository;
+    private ProduitService produitService;
 
     public ProduitController() {
-        produitRepository = new ProduitRepository();
+        produitService = new ProduitService();
     }
 
     @GetMapping("/index")
