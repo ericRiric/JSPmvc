@@ -7,19 +7,20 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
     <title>Merces</title>
 </head>
 <body>
     <h1>Merces</h1>
-    <% ArrayList<Produit> produits = (ArrayList<Produit>) request.getAttribute("produits");
-      if (produits != null) { %>
+    <c:set var="produits" value="${produits}" />
+    <c:if test="${produits != null}">
         <ul>
-        <% for (Produit produit : produits) { %>
-          <li><%= produit.Nom %> - <%= produit.Prix %>$ <%= produit.Taxable ? "+ taxes" : ""  %> (Qté: <%= produit.Quantite %>)</li>
-        <% } %>
+            <c:forEach items="${produits}" var="produit">
+                <li><c:out value="${produit.getNom()}" /> - <c:out value="${produit.getPrix()}" />$ <c:out value="${produit.getTaxable() ? '+ taxes' : ''}" /> (Qté: <c:out value="${produit.getQuantite()}" />)</li>
+            </c:forEach>
         </ul>
-      <% } %>
+    </c:if>
 </body>
 </html>

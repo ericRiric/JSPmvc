@@ -31,7 +31,7 @@ public class ProduitRepository implements IProduitRepository {
     public Produit getProduitItem(Integer id) {
         return produitArrayList
                 .stream()
-                .filter(p -> p.NoProduit.equals(id))
+                .filter(p -> p.getNoProduit().equals(id))
                 .findFirst()
                 .orElse(null);
     }
@@ -45,7 +45,7 @@ public class ProduitRepository implements IProduitRepository {
     public Produit supprimerProduit(Integer id) {
         Produit produitASupprimer = produitArrayList
                 .stream()
-                .filter(p -> p.NoProduit.equals(id))
+                .filter(p -> p.getNoProduit().equals(id))
                 .findFirst()
                 .orElse(null);
 
@@ -60,7 +60,7 @@ public class ProduitRepository implements IProduitRepository {
     public void modifierProduit(Produit produit, Integer id) {
         Produit produitAModifier = produitArrayList
                 .stream()
-                .filter(p -> p.NoProduit.equals(id))
+                .filter(p -> p.getNoProduit().equals(id))
                 .findFirst()
                 .orElse(null);
 
