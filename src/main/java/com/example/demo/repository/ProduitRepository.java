@@ -5,6 +5,23 @@ import com.example.demo.models.Produit;
 import java.util.ArrayList;
 
 public class ProduitRepository implements IProduitRepository {
+    public ProduitRepository() {
+        this.ajouterProduit(new Produit(
+                0,
+                "Goonoid",
+                10.99,
+                5,
+                false
+        ));
+        this.ajouterProduit(new Produit(
+                1,
+                "Goon",
+                20.99,
+                12,
+                true
+        ));
+    }
+
     @Override
     public ArrayList<Produit> getProduitArrayList() {
         return (ArrayList<Produit>) produitArrayList.clone();

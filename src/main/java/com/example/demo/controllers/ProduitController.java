@@ -14,21 +14,6 @@ public class ProduitController {
 
     public ProduitController() {
         produitRepository = new ProduitRepository();
-
-        produitRepository.ajouterProduit(new Produit(
-                0,
-                "Goonoid",
-                10.99,
-                5,
-                false
-        ));
-        produitRepository.ajouterProduit(new Produit(
-                1,
-                "Goon",
-                20.99,
-                12,
-                true
-        ));
     }
 
     @GetMapping("/index")
