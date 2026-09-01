@@ -17,7 +17,9 @@
                     <c:out value="${produit.getTaxable() ? '+ indicatura' : ''}" />
                     (Qta: <c:out value="${produit.getQuantite()}" />) |
                     <a href="">Mutare</a> -
-                    <a href="">Rumpere</a>
+                    <form method="post" action="/supprimer/${produit.getNoProduit()}" style="display: inline">
+                        <a href="#" onclick="this.closest('form').requestSubmit(); return false;">Rumpere</a>
+                    </form>
                 </li>
             </c:forEach>
         </ul>
