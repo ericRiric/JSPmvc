@@ -36,4 +36,16 @@ public class ProduitController {
         produitService.supprimerProduit(noProduit);
         return "redirect:/";
     }
+
+    @GetMapping("/modifier/{noProduit}")
+    public String getModifier(@PathVariable("noProduit") int noProduit, Model model) {
+        model.addAttribute("produit", produitService.getProduitItem(noProduit));
+        return "modifier";
+    }
+
+    @PostMapping("/modifier/{noProduit}")
+    public String postModifier(@PathVariable("noProduit") int noProduit, @ModelAttribute("produit") Produit produit) {
+        produitService.modifierProduit(produit, noProduit);
+        return "redirect:/";
+    }
 }

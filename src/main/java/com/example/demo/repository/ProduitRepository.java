@@ -62,11 +62,7 @@ public class ProduitRepository implements IProduitRepository {
 
     @Override
     public void modifierProduit(Produit produit, Integer id) {
-        Produit produitAModifier = produitArrayList
-                .stream()
-                .filter(p -> p.getNoProduit().equals(id))
-                .findFirst()
-                .orElse(null);
+        Produit produitAModifier = getProduitItem(id);
 
         if (produitAModifier != null) {
             produitArrayList.remove(produitAModifier);
