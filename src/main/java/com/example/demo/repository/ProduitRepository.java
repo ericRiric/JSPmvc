@@ -4,6 +4,7 @@ import com.example.demo.models.Produit;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 
 @Repository
 public class ProduitRepository implements IProduitRepository {
@@ -28,6 +29,7 @@ public class ProduitRepository implements IProduitRepository {
 
     @Override
     public ArrayList<Produit> getProduitArrayList() {
+        produitArrayList.sort(Comparator.comparing(Produit::getNom));
         return (ArrayList<Produit>) produitArrayList.clone();
     }
 
