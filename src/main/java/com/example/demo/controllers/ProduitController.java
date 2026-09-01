@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/produit")
 public class ProduitController {
     private final ProduitService produitService;
 
@@ -32,6 +31,6 @@ public class ProduitController {
     @PostMapping("/ajouter")
     public String postAjouter(@ModelAttribute("produit") Produit produit) {
         produitService.ajouterProduit(produit);
-        return "redirect:/produit/";
+        return "redirect:/";
     }
 }

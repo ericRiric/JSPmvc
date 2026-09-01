@@ -8,7 +8,7 @@
 <%@include file="nav.jsp"%>
 <body>
 <h1>MERCEM ADDERE</h1>
-<form method="post" action="/produit/ajouter">
+<form method="post" action="/ajouter">
     <%@include file="form.jsp"%>
     <div>
         <button type="submit">Addere</button>

@@ -1,5 +1,5 @@
 <nav class="row">
-    <a class="col" href="/produit/">DOMUM</a>
+    <a class="col" href="/">DOMUM</a>
     <span class="col"> | </span>
-    <a class="col" href="/produit/ajouter">ADDERE</a>
+    <a class="col" href="/ajouter">ADDERE</a>
 </nav>
