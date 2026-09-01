@@ -13,7 +13,14 @@
     <c:if test="${produits != null}">
         <ul>
             <c:forEach items="${produits}" var="produit">
-                <li><c:out value="${produit.getNom()}" /> - <c:out value="${produit.getPrix()}" />$ <c:out value="${produit.getTaxable() ? '+ taxes' : ''}" /> (Qté: <c:out value="${produit.getQuantite()}" />)</li>
+                <li>
+                    <c:out value="${produit.getNom()}" /> -
+                    <c:out value="${produit.getPrix()}" />$
+                    <c:out value="${produit.getTaxable() ? '+ indicatura' : ''}" />
+                    (Qta: <c:out value="${produit.getQuantite()}" />) |
+                    <a href="">Mutare</a> -
+                    <a href="">Rumpere</a>
+                </li>
             </c:forEach>
         </ul>
     </c:if>
