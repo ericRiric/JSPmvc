@@ -1,4 +1,4 @@
-<div class="row">
+<nav class="row">
     <a class="col" href="/produit/">
         Index
     </a>
@@ -8,4 +8,4 @@
     <a class="col" href="/produit/ajouter">
         Ajouter
     </a>
-</div>
+</nav>

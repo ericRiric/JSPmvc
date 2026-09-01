@@ -1,2 +1,2 @@
 <hr />
-<p>Io quo laetitia est</p>
+<p>IO QVO LAETITIA EST</p>

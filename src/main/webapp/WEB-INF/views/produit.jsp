@@ -4,11 +4,11 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <title>Merces</title>
+    <title>MERCES</title>
 </head>
 <%@include file="nav.jsp"%>
 <body>
-    <h1>Merces</h1>
+    <h1>MERCES</h1>
     <c:set var="produits" value="${produits}" />
     <c:if test="${produits != null}">
         <ul>
