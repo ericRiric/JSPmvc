@@ -19,7 +19,7 @@ public class ProduitService {
     }
 
     public Produit getProduitItem(Integer id) {
-        return produitRepository.findByNoProduit(id).getFirst();
+        return produitRepository.findByNoProduit(id).get(0); // Note: getFirst est dans java 21
     }
 
     public void ajouterProduit(Produit produit) {
@@ -27,11 +27,11 @@ public class ProduitService {
     }
 
     public void supprimerProduit(Integer id) {
-        produitRepository.delete(produitRepository.findByNoProduit(id).getFirst());
+        produitRepository.delete(produitRepository.findByNoProduit(id).get(0));
     }
 
     public void modifierProduit(Produit produit, Integer id) {
-        produitRepository.delete(produitRepository.findByNoProduit(id).getFirst());
+        produitRepository.delete(produitRepository.findByNoProduit(id).get(0));
         produitRepository.save(produit);
     }
 }
