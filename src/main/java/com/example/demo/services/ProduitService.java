@@ -4,7 +4,7 @@ import com.example.demo.models.Produit;
 import com.example.demo.repository.IProduitRepository;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class ProduitService {
@@ -14,23 +14,24 @@ public class ProduitService {
         this.produitRepository = produitRepository;
     }
 
-    public ArrayList<Produit> getProduitArrayList() {
-        return produitRepository.getProduitArrayList();
+    public List<Produit> getProduitArrayList() {
+        return produitRepository.findAll();
     }
 
     public Produit getProduitItem(Integer id) {
-        return produitRepository.getProduitItem(id);
+        return produitRepository.findByNoProduit(id).getFirst();
     }
 
     public void ajouterProduit(Produit produit) {
-        produitRepository.ajouterProduit(produit);
+        produitRepository.save(produit);
     }
 
-    public Produit supprimerProduit(Integer id) {
-        return produitRepository.supprimerProduit(id);
+    public void supprimerProduit(Integer id) {
+        produitRepository.delete(produitRepository.findByNoProduit(id).getFirst());
     }
 
     public void modifierProduit(Produit produit, Integer id) {
-        produitRepository.modifierProduit(produit, id);
+        produitRepository.delete(produitRepository.findByNoProduit(id).getFirst());
+        produitRepository.save(produit);
     }
 }

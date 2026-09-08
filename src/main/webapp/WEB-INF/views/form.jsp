@@ -9,11 +9,6 @@
 </c:choose>
 
 <div>
-    <label for="noProduit">Mercis numerus</label>
-    <input type="number" id="noProduit" name="noProduit" min="0" value="${estModif ? produit.getNoProduit() : ""}" />
-</div>
-
-<div>
     <label for="nom">Mercis nomen</label>
     <input type="text" id="nom" name="nom" value="${estModif ? produit.getNom() : ""}" />
 </div>
