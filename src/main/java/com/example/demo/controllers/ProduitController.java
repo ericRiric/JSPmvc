@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.*;
 public class ProduitController {
     private final ProduitService produitService;
 
-    public ProduitController() {
-        produitService = new ProduitService();
+    public ProduitController(ProduitService produitService) {
+        this.produitService = produitService;
     }
 
     @GetMapping("/")

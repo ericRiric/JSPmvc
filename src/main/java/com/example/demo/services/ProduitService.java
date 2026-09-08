@@ -2,7 +2,6 @@ package com.example.demo.services;
 
 import com.example.demo.models.Produit;
 import com.example.demo.repository.IProduitRepository;
-import com.example.demo.repository.ProduitRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -11,8 +10,8 @@ import java.util.ArrayList;
 public class ProduitService {
     private final IProduitRepository produitRepository;
 
-    public ProduitService() {
-        this.produitRepository = new ProduitRepository();
+    public ProduitService(IProduitRepository produitRepository) {
+        this.produitRepository = produitRepository;
     }
 
     public ArrayList<Produit> getProduitArrayList() {
