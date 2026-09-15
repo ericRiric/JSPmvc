@@ -21,7 +21,9 @@ public class ProduitController {
     }
 
     @GetMapping("/ajouter")
-    public String formAjouter() {
+    public String formAjouter(Model model) {
+        Produit produit = new Produit();
+        model.addAttribute("produit", produit);
         return "ajouter";
     }
 

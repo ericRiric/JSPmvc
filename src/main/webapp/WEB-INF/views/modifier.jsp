@@ -8,13 +8,12 @@
 <%@include file="nav.jsp"%>
 <body>
 <h1>MERCEM MUTARE</h1>
-<c:set var="produit" value="${produit}" />
-<form method="post" action="/modifier/${produit.getNoProduit()}">
+<form:form method="post" action="/modifier/${produit.getNoProduit()}" modelAttribute="produit">
     <%@include file="form.jsp"%>
     <div>
-        <button type="submit">Mutare</button>
+        <form:button type="submit">Mutare</form:button>
     </div>
-</form>
+</form:form>
 </body>
 <%@include file="foot.jsp"%>
 </html>

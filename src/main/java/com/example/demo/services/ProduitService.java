@@ -31,7 +31,15 @@ public class ProduitService {
     }
 
     public void modifierProduit(Produit produit, Integer id) {
-        produitRepository.delete(produitRepository.findByNoProduit(id).get(0));
-        produitRepository.save(produit);
+        // Du big G
+        Produit produitExistant = produitRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Produit introuvable"));
+
+        produitExistant.setNom(produit.getNom());
+        produitExistant.setPrix(produit.getPrix());
+        produitExistant.setQuantite(produit.getQuantite());
+        produitExistant.setTaxable(produit.getTaxable());
+
+        produitRepository.save(produitExistant);
     }
 }

@@ -1,29 +1,21 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<c:choose>
-    <c:when test="${produit != null}">
-        <c:set var="estModif" value="${true}" />
-    </c:when>
-    <c:otherwise>
-        <c:set var="estModif" value="${false}" />
-    </c:otherwise>
-</c:choose>
 
 <div>
-    <label for="nom">Mercis nomen</label>
-    <input type="text" id="nom" name="nom" value="${estModif ? produit.getNom() : ""}" />
+    <form:label path="nom">Mercis nomen</form:label>
+    <form:input path="nom" type="text" id="nom" />
 </div>
 
 <div>
-    <label for="prix">Mercis pretium</label>
-    <input type="number" id="prix" name="prix" min="0" step="0.01" value="${estModif ? produit.getPrix() : ""}" />
+    <form:label path="prix">Mercis pretium</form:label>
+    <form:input path="prix" type="number" id="prix" min="0" step="0.01" />
 </div>
 
 <div>
-    <label for="quantite">Mercis quantitas</label>
-    <input type="number" id="quantite" name="quantite" min="1" value="${estModif ? produit.getQuantite() : ""}"/>
+    <form:label path="quantite">Mercis quantitas</form:label>
+    <form:input path="quantite" type="number" id="quantite" min="1" />
 </div>
 
 <div>
-    <label for="taxable">Indicaturamne habet?</label>
-    <input type="checkbox" id="taxable" name="taxable" ${estModif ? (produit.getTaxable() ? "checked" : "") : ""}/>
+    <form:label path="taxable">Indicaturamne habet?</form:label>
+    <form:checkbox path="taxable" id="taxable" />
 </div>

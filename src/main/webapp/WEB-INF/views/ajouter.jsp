@@ -8,12 +8,12 @@
 <%@include file="nav.jsp"%>
 <body>
 <h1>MERCEM ADDERE</h1>
-<form method="post" action="/ajouter">
+<form:form modelAttribute="produit" method="post" action="/ajouter">
     <%@include file="form.jsp"%>
     <div>
         <button type="submit">Addere</button>
     </div>
-</form>
+</form:form>
 </body>
 <%@include file="foot.jsp"%>
 </html>
