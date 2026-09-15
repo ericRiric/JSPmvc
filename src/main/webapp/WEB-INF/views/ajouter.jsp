@@ -11,7 +11,7 @@
 <form:form modelAttribute="produit" method="post" action="/ajouter">
     <%@include file="form.jsp"%>
     <div>
-        <button type="submit">Addere</button>
+        <form:button type="submit">Addere</form:button>
     </div>
 </form:form>
 </body>

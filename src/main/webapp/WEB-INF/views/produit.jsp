@@ -7,6 +7,12 @@
 <%@include file="nav.jsp"%>
 <body>
     <h1>MERCES</h1>
+    <form method="get" action="/">
+        <span>
+            <input type="text" name="search" id="search" />
+            <button type="submit">Quaere</button>
+        </span>
+    </form>
     <c:set var="produits" value="${produits}" />
     <c:if test="${produits != null}">
         <ul>

@@ -15,8 +15,12 @@ public class ProduitController {
     }
 
     @GetMapping("/")
-    public String index(Model model) {
-        model.addAttribute("produits", produitService.getProduitArrayList());
+    public String index(Model model, @RequestParam(required = false) String search) {
+        if (search != null && !search.isBlank()) {
+            model.addAttribute("produits", produitService.rechercherProduit(search));
+        } else {
+            model.addAttribute("produits", produitService.getProduitArrayList());
+        }
         return "produit";
     }
 

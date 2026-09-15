@@ -42,4 +42,8 @@ public class ProduitService {
 
         produitRepository.save(produitExistant);
     }
+
+    public List<Produit> rechercherProduit(String query) {
+        return produitRepository.findByNomContainsIgnoreCase(query);
+    }
 }
