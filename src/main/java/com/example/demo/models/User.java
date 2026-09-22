@@ -17,9 +17,10 @@ import java.util.Set;
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Integer id;
 
     private String nom;
+    private String passwd;
 
     @ManyToMany
     private Set<Role> roles;
