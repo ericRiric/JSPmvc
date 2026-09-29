@@ -14,8 +14,8 @@
         <form:input path="nom" type="text" id="nom" />
     </div>
     <div>
-        <form:label path="passwd">Tessera</form:label>
-        <form:input path="passwd" type="text" id="passwd" />
+        <form:label path="password">Tessera</form:label>
+        <form:input path="password" type="text" id="password" />
     </div>
     <div>
         <form:button type="submit">Imponere</form:button>

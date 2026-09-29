@@ -18,16 +18,16 @@ public class UtilisateurService {
         return userRepository.findAll();
     }
 
-    public Boolean containsUser(String nom, String passwd) {
+    public Boolean containsUser(String nom, String password) {
         Utilisateur user = userRepository.findFirstByNom(nom);
-        return user != null && user.getPasswd().equals(passwd);
+        return user != null && user.getPassword().equals(password);
     }
 
-    public void addUser(UserDto user) {
-        userRepository.save(
+    public Utilisateur addUser(UserDto user) {
+        return userRepository.save(
                 Utilisateur.builder()
                         .nom(user.getNom())
-                        .passwd(user.getPasswd()) // TODO: passwordEncoder.encode(user.passwd)
+                        .password(user.getPassword()) // TODO: passwordEncoder.encode(user.password)
                         .roles(roleService.findByNom("ROLE_USER"))
                         .build()
         );

@@ -24,11 +24,6 @@ public class UserController {
         return "u/login";
     }
 
-    @PostMapping("/login")
-    public String login(@ModelAttribute("user") UserDto userDto) {
-        return "redirect:/";
-    }
-
     @GetMapping("/register")
     public String registerPage(Model model) {
         model.addAttribute("user", new UserDto());

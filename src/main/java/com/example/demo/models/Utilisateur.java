@@ -18,8 +18,9 @@ public class Utilisateur {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
+    @Column(unique = true)
     private String nom;
-    private String passwd;
+    private String password;
 
     @ManyToMany
     @JoinTable(
@@ -46,12 +47,12 @@ public class Utilisateur {
         this.nom = nom;
     }
 
-    public String getPasswd() {
-        return passwd;
+    public String getPassword() {
+        return password;
     }
 
-    public void setPasswd(String passwd) {
-        this.passwd = passwd;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public Set<Role> getRoles() {
