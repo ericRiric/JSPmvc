@@ -23,11 +23,11 @@ public class UtilisateurService {
         return user != null && user.getPasswd().equals(passwd);
     }
 
-    public Utilisateur addUser(UserDto user) {
-        return userRepository.save(
+    public void addUser(UserDto user) {
+        userRepository.save(
                 Utilisateur.builder()
                         .nom(user.getNom())
-                        .passwd("") // TODO: passwordEncoder.encode(user.passwd)
+                        .passwd(user.getPasswd()) // TODO: passwordEncoder.encode(user.passwd)
                         .roles(roleService.findByNom("ROLE_USER"))
                         .build()
         );

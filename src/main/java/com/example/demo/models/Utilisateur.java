@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 import java.util.Set;
 
 @Entity
-@Table(name = "Users")
+@Table(name = "Utilisateur")
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
@@ -22,6 +22,12 @@ public class Utilisateur {
     private String passwd;
 
     @ManyToMany
+    @JoinTable(
+            name = "UtilisateurRoles",
+            joinColumns = @JoinColumn(name = "roles_id"),
+            inverseJoinColumns = @JoinColumn(name = "utilisateur_id"),
+            uniqueConstraints = @UniqueConstraint(columnNames = {"roles_id", "utilisateur_id"})
+    )
     private Set<Role> roles;
 
     public Integer getId() {

@@ -22,13 +22,15 @@ public class ConfigurationSecurite {
                                     "/",
                                     "/u/login",
                                     "/u/register",
+                                    "/WEB-INF/**",
                                     "/error").permitAll();
                             auth.requestMatchers("/a/**").hasRole("ADMIN");
                             auth.anyRequest().authenticated();
                         }
 
                 )
-                .formLogin(form -> form.loginPage("/u/login")
+                .formLogin(form -> form
+                        .loginPage("/u/login")
                         .defaultSuccessUrl("/")
                         .loginProcessingUrl("/u/login")
                         .failureUrl("/u/login")

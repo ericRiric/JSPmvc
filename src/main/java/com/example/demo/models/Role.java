@@ -13,13 +13,8 @@ public class Role {
     private Integer id;
     private String nom;
 
-    @ManyToMany
-    @JoinTable(
-            name = "RolesUsers",
-            joinColumns = @JoinColumn(name = "role_id"),
-            inverseJoinColumns = @JoinColumn(name = "user_id"),
-            uniqueConstraints = @UniqueConstraint(columnNames = {"role_id", "user_id"})
-    )
+
+    @ManyToMany(mappedBy = "roles")
     private Set<Utilisateur> users;
 
     public Integer getId() {
