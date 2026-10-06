@@ -31,6 +31,10 @@ public class Utilisateur {
     )
     private Set<Role> roles;
 
+    @OneToOne
+    @JoinColumn(name = "panier_id")
+    private Panier panier;
+
     public Integer getId() {
         return id;
     }

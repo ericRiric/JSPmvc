@@ -13,6 +13,13 @@
 
     <sec:authorize access="isAuthenticated()">
         <span class="col"> | </span>
-        <a class="col" href="/logout">DEC</a>
+        <form method="post" action="/logout">
+            <input type="hidden"
+                   name="${_csrf.parameterName}"
+                   value="${_csrf.token}"/>
+            </form>
+            <button type="submit">DEC</button>
+        </form>
     </sec:authorize>
 </nav>
+<hr />
