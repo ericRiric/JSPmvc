@@ -37,7 +37,7 @@ public class ConfigurationSecurite {
                         .loginProcessingUrl("/u/login")
                         .failureUrl("/error")
                         .permitAll()
-                )
+                ).csrf(Customizer.withDefaults())
                 .logout(logout -> logout
                         .logoutUrl("/logout")
                         .permitAll()

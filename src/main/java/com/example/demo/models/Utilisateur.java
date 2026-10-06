@@ -22,11 +22,11 @@ public class Utilisateur {
     private String nom;
     private String password;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
             name = "UtilisateurRoles",
-            joinColumns = @JoinColumn(name = "roles_id"),
-            inverseJoinColumns = @JoinColumn(name = "utilisateur_id"),
+            joinColumns = @JoinColumn(name = "utilisateur_id"),
+            inverseJoinColumns = @JoinColumn(name = "roles_id"),
             uniqueConstraints = @UniqueConstraint(columnNames = {"roles_id", "utilisateur_id"})
     )
     private Set<Role> roles;

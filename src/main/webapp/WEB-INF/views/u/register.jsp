@@ -10,8 +10,8 @@
 <h1>Nomen imponere</h1>
 <form:form modelAttribute="user" method="post" action="/u/register">
     <div>
-        <form:label path="nom">Nomen usoris</form:label>
-        <form:input path="nom" type="text" id="nom" />
+        <form:label path="username">Nomen usoris</form:label>
+        <form:input path="username" type="text" id="username" />
     </div>
     <div>
         <form:label path="password">Tessera</form:label>

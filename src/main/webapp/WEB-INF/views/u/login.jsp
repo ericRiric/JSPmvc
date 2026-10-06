@@ -9,13 +9,13 @@
 <body>
 <h1>Nomen dare</h1>
 <a href="register">Sibi nomen imponere?</a>
-<form:form modelAttribute="user" method="post" action="/u/login">
+<form:form modelAttribute="utilisateur" method="post" action="/u/login">
     <div>
-        <form:label path="nom">Nomen usoris</form:label>
-        <form:input path="nom" type="text" id="nom" />
+        <form:label path="username">Nomen usoris</form:label>
+        <form:input path="username" type="text" id="username" />
     </div>
     <div>
-        <form:errors path="nom" />
+        <form:errors path="username" />
     </div>
     <div>
         <form:label path="password">Tessera</form:label>

@@ -1,6 +1,6 @@
 package com.example.demo.services;
 
-import com.example.demo.dto.UserDto;
+import com.example.demo.dto.UtilisateurDto;
 import com.example.demo.models.Utilisateur;
 import com.example.demo.repository.IUtilisateurRepository;
 import lombok.AllArgsConstructor;
@@ -22,13 +22,13 @@ public class UtilisateurService {
 
     public Boolean containsUser(String nom, String password) {
         Utilisateur user = userRepository.findFirstByNom(nom);
-        return user != null && user.getPassword().equals(password);
+        return user != null && passwordEncoder.matches(password, user.getPassword());
     }
 
-    public Utilisateur addUser(UserDto user) {
+    public Utilisateur addUser(UtilisateurDto user) {
         return userRepository.save(
                 Utilisateur.builder()
-                        .nom(user.getNom())
+                        .nom(user.getUsername())
                         .password(passwordEncoder.encode(user.getPassword()))
                         .roles(roleService.findByNom("ROLE_USER"))
                         .build()

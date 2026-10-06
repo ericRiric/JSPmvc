@@ -22,8 +22,8 @@ public class CustomUserDetailsService implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         Utilisateur utilisateur = utilisateurRepository.findFirstByNom(username);
-
         if (utilisateur != null) {
+
             User authUser = new User(
                     username,
                     utilisateur.getPassword(),

@@ -1,6 +1,6 @@
 package com.example.demo.controllers;
 
-import com.example.demo.dto.UserDto;
+import com.example.demo.dto.UtilisateurDto;
 import com.example.demo.services.UtilisateurService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,19 +20,19 @@ public class UserController {
 
     @GetMapping("/login")
     public String loginPage(Model model) {
-        model.addAttribute("user", new UserDto());
+        model.addAttribute("utilisateur", new UtilisateurDto());
         return "u/login";
     }
 
     @GetMapping("/register")
     public String registerPage(Model model) {
-        model.addAttribute("user", new UserDto());
+        model.addAttribute("user", new UtilisateurDto());
         return "u/register";
     }
 
     @PostMapping("/register")
-    public String register(@ModelAttribute("user") UserDto userDto) {
-        utilisateurService.addUser(userDto);
+    public String register(@ModelAttribute("user") UtilisateurDto utilisateurDto) {
+        utilisateurService.addUser(utilisateurDto);
         return "redirect:/";
     }
 }
