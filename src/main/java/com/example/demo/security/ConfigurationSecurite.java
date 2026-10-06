@@ -35,8 +35,13 @@ public class ConfigurationSecurite {
                         .loginPage("/u/login")
                         .defaultSuccessUrl("/")
                         .loginProcessingUrl("/u/login")
-                        .failureUrl("/u/login")
+                        .failureUrl("/error")
                         .permitAll()
+                )
+                .logout(logout -> logout
+                        .logoutUrl("/logout")
+                        .permitAll()
+                        .logoutSuccessUrl("/login")
                 );
         return http.build();
     }

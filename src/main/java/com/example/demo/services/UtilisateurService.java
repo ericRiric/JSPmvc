@@ -4,6 +4,7 @@ import com.example.demo.dto.UserDto;
 import com.example.demo.models.Utilisateur;
 import com.example.demo.repository.IUtilisateurRepository;
 import lombok.AllArgsConstructor;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -13,6 +14,7 @@ import java.util.List;
 public class UtilisateurService {
     private final IUtilisateurRepository userRepository;
     private final RoleService roleService;
+    private final PasswordEncoder passwordEncoder;
 
     public List<Utilisateur> getUsersList() {
         return userRepository.findAll();
@@ -27,7 +29,7 @@ public class UtilisateurService {
         return userRepository.save(
                 Utilisateur.builder()
                         .nom(user.getNom())
-                        .password(user.getPassword()) // TODO: passwordEncoder.encode(user.password)
+                        .password(passwordEncoder.encode(user.getPassword()))
                         .roles(roleService.findByNom("ROLE_USER"))
                         .build()
         );
