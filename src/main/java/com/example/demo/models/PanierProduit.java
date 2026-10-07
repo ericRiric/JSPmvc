@@ -1,5 +1,6 @@
 package com.example.demo.models;
 
+
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -8,18 +9,19 @@ import lombok.NoArgsConstructor;
 import java.util.Set;
 
 @Entity
-@Table(name = "paniers")
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class Panier {
+public class PanierProduit {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
-    @OneToOne(mappedBy = "utilisateur")
-    private Utilisateur utilisateur;
+    @ManyToOne
+    private Panier paniers;
 
-    @OneToMany
-    private Set<PanierProduit> panierProduits;
+    @ManyToOne
+    private Produit produit_id;
+
+    private Integer qte;
 }

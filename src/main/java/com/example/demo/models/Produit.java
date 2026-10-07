@@ -6,6 +6,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.Set;
+
 @Entity
 @Table(name = "produits")
 @AllArgsConstructor
@@ -29,4 +31,7 @@ public class Produit {
 
     @Column(name = "taxable")
     private Boolean taxable;
+
+    @OneToMany
+    private Set<PanierProduit> panierProduits;
 }
