@@ -20,6 +20,12 @@ public class Panier {
     @OneToOne(mappedBy = "utilisateur")
     private Utilisateur utilisateur;
 
-    @OneToMany
-    private Set<PanierProduit> panierProduits;
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(
+            name = "PanierProduit",
+            joinColumns = @JoinColumn(name = "panier_id"),
+            inverseJoinColumns = @JoinColumn(name = "produit_id"),
+            uniqueConstraints = @UniqueConstraint(columnNames = {"panier_id", "produit_id"})
+    )
+    private Set<Produit> produits;
 }

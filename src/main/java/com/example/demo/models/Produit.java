@@ -32,6 +32,6 @@ public class Produit {
     @Column(name = "taxable")
     private Boolean taxable;
 
-    @OneToMany
-    private Set<PanierProduit> panierProduits;
+    @ManyToMany(mappedBy = "panier")
+    private Set<Panier> paniers;
 }
