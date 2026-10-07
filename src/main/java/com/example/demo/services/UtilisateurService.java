@@ -9,6 +9,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.Collections;
 import java.util.List;
 
 @Service
@@ -33,18 +34,24 @@ public class UtilisateurService {
     }
 
     public Utilisateur addUser(UtilisateurDto user) {
-         Utilisateur utilisateur = userRepository.save(
-                Utilisateur.builder()
-                        .nom(user.getUsername())
-                        .password(passwordEncoder.encode(user.getPassword()))
-                        .roles(roleService.findByNom("ROLE_USER"))
-                        .build()
-        );
-
-         /*
-         panierRepository.save(
+         Utilisateur utilisateur = userRepository.save(Utilisateur.builder()
+                 .nom(user.getUsername())
+                 .password(passwordEncoder.encode(user.getPassword()))
+                 .roles(roleService.findByNom("ROLE_USER"))
+                 .build()
          );
-         */
+
+         Panier panier = panierRepository.save(Panier
+                 .builder()
+                 .produits(Collections.emptySet())
+                 .utilisateur(utilisateur)
+                 .build()
+         );
+
+         utilisateur.setPanier(panier);
+
+         userRepository.save(utilisateur);
+         panierRepository.save(panier);
 
          return utilisateur;
     }

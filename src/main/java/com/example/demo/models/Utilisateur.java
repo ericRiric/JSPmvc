@@ -66,4 +66,12 @@ public class Utilisateur {
     public void setRoles(Set<Role> roles) {
         this.roles = roles;
     }
+
+    public Panier getPanier() {
+        return panier;
+    }
+
+    public void setPanier(Panier panier) {
+        this.panier = panier;
+    }
 }
