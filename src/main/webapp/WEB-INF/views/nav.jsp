@@ -13,12 +13,16 @@
 
     <sec:authorize access="isAuthenticated()">
         <span class="col"> | </span>
-        <form method="post" action="/logout">
+        <a class="col" href="/p/panier">QVASILLVM</a>
+        <span class="col"> | </span>
+        <form method="post" action="/logout" style="display: inline;">
             <input type="hidden"
                    name="${_csrf.parameterName}"
-                   value="${_csrf.token}"/>
-            </form>
-            <button type="submit">DEC</button>
+                   value="${_csrf.token}" />
+            <button type="submit"
+                    style="background:none; border:none; padding:0; color:inherit; text-decoration:underline; cursor:pointer; font:inherit;">
+                DEC
+            </button>
         </form>
     </sec:authorize>
 </nav>
